@@ -2,7 +2,7 @@
   "image": "zingdev/devcontainer-node:20-base",
   "runArgs": [
     "--name",
-    "RepoName"
+    "stp-twilio"
   ],
   "remoteUser": "vscode",
   "features": {

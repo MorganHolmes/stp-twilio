@@ -19,5 +19,4 @@ jobs:
     with:
       PACKAGE_DIRECTORIES: |
         workspaces/api
-        workspaces/plugin
       BUMP_TYPE: ${{ inputs.BUMP_TYPE }}

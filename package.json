@@ -1,5 +1,5 @@
 {
-  "name": "PackageRepoName",
+  "name": "stp-twilio",
   "version": "0.0.0",
   "packageManager": "yarn@4.9.2",
   "workspaces": {
@@ -9,19 +9,14 @@
   },
   "scripts": {
     "build:shared": "yarn workspace shared build",
-    "build:api": "yarn workspace PackageRepoName-api build:ci",
-    "build:plugin": "yarn workspace PackageRepoName-plugin build",
-    "lint:ci": "yarn lint:types && yarn lint:api && yarn lint:plugin",
-    "lint:plugin": "eslint ./workspaces/plugin/src/**/*.{ts,tsx}",
+    "build:api": "yarn workspace stp-twilio-api build:ci",
+    "lint:ci": "yarn lint:types && yarn lint:api",
     "lint:shared": "eslint ./workspaces/shared/src/**/*.ts",
     "lint:api": "eslint ./workspaces/api/src/**/*.ts",
-    "start:api": "yarn build:shared && yarn workspace PackageRepoName-api start",
-    "start:plugin": "yarn build:shared && yarn workspace PackageRepoName-plugin start",
-    "test:plugin": "yarn workspace PackageRepoName-plugin test",
-    "test:plugin:u": "yarn workspace PackageRepoName-plugin test:u",
-    "test:api": "yarn workspace PackageRepoName-api test",
+    "start:api": "yarn build:shared && yarn workspace stp-twilio-api start",
+    "test:api": "yarn workspace stp-twilio-api test",
     "test:ci": "yarn workspaces foreach -A -p run test",
-    "deploy:api": "yarn workspace PackageRepoName-api deploy",
+    "deploy:api": "yarn workspace stp-twilio-api deploy",
     "prepare": "husky"
   },
   "devDependencies": {

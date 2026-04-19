@@ -28,22 +28,6 @@
       "yaml:subformat": "env"
     },
     {
-      "id": "plugin-env-sample",
-      "format": "env",
-      "file": "workspaces/plugin/.env.sample",
-      "ignore-list": [
-        "FLEX_APP_LOCAL_DEV",
-        "FLEX_APP_DEBUG"
-      ]
-    },
-    {
-      "id": "deploy-plugin-config-yaml",
-      "format": "yaml",
-      "file": ".github/workflows/deploy.yaml",
-      "yaml:path": "jobs.configure_twilio.steps.[id=updatePluginConfig].with.CONFIG_DATA_JSON",
-      "yaml:subformat": "json"
-    },
-    {
       "id": "gh-vars-secrets",
       "format": "github-workflow",
       "file": ".github/workflows/deploy.yaml",
@@ -74,12 +58,6 @@
       "description": "API Context variables should exactly match deployed variables",
       "source": "api-context-ts",
       "target": "deploy-api-vars-yaml",
-      "symmetric": true
-    },
-    {
-      "description": "Plugin .env.sample variables should exactly match deployed config",
-      "source": "plugin-env-sample",
-      "target": "deploy-plugin-config-yaml",
       "symmetric": true
     },
     {

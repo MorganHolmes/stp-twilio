@@ -1,5 +1,5 @@
 {
-  "name": "PackageRepoName-api",
+  "name": "stp-twilio-api",
   "version": "0.0.0",
   "private": true,
   "scripts": {

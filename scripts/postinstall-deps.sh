@@ -12,7 +12,6 @@ cd ../;
 
 # required dependencies for twilio build and deploy, etc. commands
 REQUIRED_DEPENDENCY_DIRS=(
-  "node_modules/@twilio/flex-ui/package.json"
   "node_modules/react-dom/package.json"
   "node_modules/react/package.json"
 );

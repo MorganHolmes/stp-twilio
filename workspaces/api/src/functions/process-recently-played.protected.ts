@@ -104,7 +104,7 @@ export const handler: ServerlessFunctionSignature<SpotifyContext, Event> =
         }
       }
 
-      console.log('Recent Track Map:', recentTrackMap);
+      //console.log('Recent Track Map:', recentTrackMap);
 
       // Get source playlist tracks
       const sourcePlaylistUris = await getPlaylistItems(
@@ -113,7 +113,7 @@ export const handler: ServerlessFunctionSignature<SpotifyContext, Event> =
       );
       const sourceUriSet = new Set(sourcePlaylistUris);
 
-      console.log('Source:' + Array.from(sourceUriSet).join(', '));
+      //console.log('Source:' + Array.from(sourceUriSet).join(', '));
 
       // Find intersection
       const matchingTracks = [...recentTrackMap.values()].filter((track) =>
@@ -140,7 +140,7 @@ export const handler: ServerlessFunctionSignature<SpotifyContext, Event> =
 
       const matchingUris = matchingTracks.map((t) => t.uri);
 
-      console.log('Matching URIs:' + matchingUris.join(', '));
+      //console.log('Matching URIs:' + matchingUris.join(', '));
 
       console.log(
         `Moving ${matchingTracks.length} track(s) from source to destination playlist.`,

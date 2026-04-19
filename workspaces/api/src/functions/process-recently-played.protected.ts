@@ -104,12 +104,16 @@ export const handler: ServerlessFunctionSignature<SpotifyContext, Event> =
         }
       }
 
+      console.log(recentTrackMap);
+
       // Get source playlist tracks
       const sourcePlaylistUris = await getPlaylistItems(
         accessToken,
         sourcePlaylistId,
       );
       const sourceUriSet = new Set(sourcePlaylistUris);
+
+      console.log('Source:' + Array.from(sourceUriSet).join(', '));
 
       // Find intersection
       const matchingTracks = [...recentTrackMap.values()].filter((track) =>

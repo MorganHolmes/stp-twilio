@@ -22,7 +22,7 @@ permissions:
   actions: read
 
 env:
-  FUNCTIONS_SERVICE_NAME: RepoName-api
+  FUNCTIONS_SERVICE_NAME: stp-twilio-api
   TWILIO_ACCOUNT_SID: ${{ vars[format('{0}_TWILIO_ACCOUNT_SID', inputs.ENVIRONMENT)] }}
   TWILIO_API_KEY: ${{ vars[format('{0}_TWILIO_API_KEY', inputs.ENVIRONMENT)] }}
   TWILIO_API_SECRET: ${{ secrets[format('{0}_TWILIO_API_SECRET', inputs.ENVIRONMENT)] }}

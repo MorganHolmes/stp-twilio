@@ -1,0 +1,17 @@
+{
+  "commands": {
+    "deploy": {
+      "assets": true,
+      "assetsFolder": "dist/assets",
+      "functions": true,
+      "functionsFolder": "dist/functions",
+      "overrideExistingProject": true
+    },
+    "start": {
+      "assets": false,
+      "functions": true,
+      "functionsFolder": "dist/functions"
+    }
+  },
+  "runtime": "node22"
+}

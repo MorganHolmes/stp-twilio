@@ -1,0 +1,23 @@
+name: Bump Monorepo Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      BUMP_TYPE:
+        description: Bump Type
+        type: choice
+        options:
+          - patch
+          - minor
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    uses: zingdevlimited/actions-helpers/.github/workflows/bump-monorepo-version.yaml@v4
+    with:
+      PACKAGE_DIRECTORIES: |
+        workspaces/api
+        workspaces/plugin
+      BUMP_TYPE: ${{ inputs.BUMP_TYPE }}

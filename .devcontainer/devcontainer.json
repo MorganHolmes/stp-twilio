@@ -1,0 +1,52 @@
+{
+  "image": "zingdev/devcontainer-node:20-base",
+  "runArgs": [
+    "--name",
+    "RepoName"
+  ],
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
+    "ghcr.io/zingdevlimited/dev-containers/zing-twilio-cli": {
+      "version": "6.2.4-1",
+      "flex": "7.1.2",
+      "serverless": "3"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "SonarSource.sonarlint-vscode",
+        "yzhang.markdown-all-in-one",
+        "streetsidesoftware.code-spell-checker",
+        "github.vscode-github-actions",
+        "vivaxy.vscode-conventional-commits"
+      ],
+      "settings": {
+        "[typescript]": {
+          "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+          "editor.wordWrap": "off"
+        },
+        "editor.formatOnSave": true,
+        "eslint.format.enable": true
+      }
+    }
+  },
+  "initializeCommand": "docker run --rm -v buildnow-shared:/mnt/sv zingdev/shared-twilio-config 1000",
+  "postCreateCommand": "ln -s /mnt/twilio-config/config.json /home/vscode/.twilio-cli/config.json && yarn",
+  "mounts": [
+    {
+      "source": "buildnow-shared",
+      "target": "/mnt/twilio-config",
+      "type": "volume"
+    }
+  ]
+}

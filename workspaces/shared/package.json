@@ -1,0 +1,18 @@
+{
+  "name": "shared",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Project for typescript types and utilities to be shared across plugin and API.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo 'Types only. No tests'",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23"
+  }
+}

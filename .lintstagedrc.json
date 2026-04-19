@@ -1,0 +1,6 @@
+{
+  "workspaces/**/*.{ts,tsx}": [
+    "eslint",
+    "prettier --list-different --write"
+  ]
+}

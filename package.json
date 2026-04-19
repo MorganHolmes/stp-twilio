@@ -1,0 +1,37 @@
+{
+  "name": "PackageRepoName",
+  "version": "0.0.0",
+  "packageManager": "yarn@4.9.2",
+  "workspaces": {
+    "packages": [
+      "workspaces/*"
+    ]
+  },
+  "scripts": {
+    "build:shared": "yarn workspace shared build",
+    "build:api": "yarn workspace PackageRepoName-api build:ci",
+    "build:plugin": "yarn workspace PackageRepoName-plugin build",
+    "lint:ci": "yarn lint:types && yarn lint:api && yarn lint:plugin",
+    "lint:plugin": "eslint ./workspaces/plugin/src/**/*.{ts,tsx}",
+    "lint:shared": "eslint ./workspaces/shared/src/**/*.ts",
+    "lint:api": "eslint ./workspaces/api/src/**/*.ts",
+    "start:api": "yarn build:shared && yarn workspace PackageRepoName-api start",
+    "start:plugin": "yarn build:shared && yarn workspace PackageRepoName-plugin start",
+    "test:plugin": "yarn workspace PackageRepoName-plugin test",
+    "test:plugin:u": "yarn workspace PackageRepoName-plugin test:u",
+    "test:api": "yarn workspace PackageRepoName-api test",
+    "test:ci": "yarn workspaces foreach -A -p run test",
+    "deploy:api": "yarn workspace PackageRepoName-api deploy",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  }
+}

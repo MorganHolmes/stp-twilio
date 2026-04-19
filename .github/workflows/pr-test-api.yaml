@@ -1,0 +1,53 @@
+name: "[PR] Test RepoName API"
+
+on:
+  pull_request:
+    branches:
+    - develop
+    paths:
+    - workspaces/api/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+    
+jobs:
+
+  build:
+    runs-on: ubuntu-24.04
+        
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: "./"
+        run: yarn install --immutable --mode=skip-build
+
+      - name: Build project dependencies
+        working-directory: "./"
+        run: |
+          yarn build:shared
+          yarn build:api
+
+      - name: Lint api
+        working-directory: "./"
+        run: yarn lint:api
+
+      - name: Test api  
+        working-directory: "./"
+        run: yarn test:api
+
+      - name: Output api coverage
+        if: github.event_name == 'pull_request'
+        uses: romeovs/lcov-reporter-action@v0.4.0
+        with:
+          title: API Coverage
+          lcov-file: ./workspaces/api/coverage/lcov.info
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          delete-old-comments: true

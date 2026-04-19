@@ -1,0 +1,19 @@
+{
+  "collectCoverage": true,
+  "coverageReporters": [
+    "lcov",
+    "text"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx}"
+  ],
+  "testEnvironment": "jest-environment-jsdom",
+  "testEnvironmentOptions": {
+    "html": "<html lang=\"en\"></html>",
+    "url": "https://jestjs.io/",
+    "userAgent": "Agent/007"
+  },
+  "setupFilesAfterEnv": [
+    "./jest.setup.js"
+  ]
+}

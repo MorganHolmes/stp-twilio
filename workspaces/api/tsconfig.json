@@ -1,0 +1,7 @@
+{
+  "extends": "@zingdev/serverless-helpers/tsconfig/serverlessStandard.json",
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "src",
+  }
+}

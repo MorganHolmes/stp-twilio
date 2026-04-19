@@ -1,0 +1,18 @@
+name: "Build Code Components"
+run-name: "Build Code from ${{ github.ref }}"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_api:
+    uses: zingdevlimited/actions-helpers/.github/workflows/build-twilio-functions.yaml@v4
+    with:
+      SERVICE_DIRECTORY: workspaces/api
+      BUILD_COMMAND: "yarn build:shared && yarn build:api"
+      INCLUDE_VERSION_ASSET: true
+  build_plugin:
+    uses: zingdevlimited/actions-helpers/.github/workflows/build-twilio-flex-plugin.yaml@v4
+    with:
+      PLUGIN_DIRECTORY: workspaces/plugin
+      BUILD_COMMAND: "yarn build:shared && yarn build:plugin"

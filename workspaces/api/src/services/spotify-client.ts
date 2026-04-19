@@ -155,7 +155,7 @@ export async function removeItemsFromPlaylist(
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          tracks: batch.map((uri) => ({ uri })),
+          items: batch.map((uri) => ({ uri })),
         }),
       },
     );

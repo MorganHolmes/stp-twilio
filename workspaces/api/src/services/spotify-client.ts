@@ -23,6 +23,7 @@ export interface RecentlyPlayedResponse {
 
 interface PlaylistItemsResponse {
   items: {
+    item?: { uri: string } | null;
     track?: { uri: string; type: string } | null;
   }[];
   next: string | null;
@@ -100,7 +101,7 @@ export async function getPlaylistItems(
   let url: string | null =
     `${BASE_URL}/playlists/${encodeURIComponent(playlistId)}/items?` +
     new URLSearchParams({
-      fields: "items(track(uri)),next",
+      fields: "items(item(uri)),next",
       limit: "50",
     });
 
@@ -109,8 +110,9 @@ export async function getPlaylistItems(
     const data = (await response.json()) as PlaylistItemsResponse;
 
     for (const item of data.items) {
-      if (item.track?.uri) {
-        uris.push(item.track.uri);
+      const trackItem = item.item || item.track;
+      if (trackItem?.uri) {
+        uris.push(trackItem.uri);
       }
     }
 

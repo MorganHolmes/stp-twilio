@@ -65,3 +65,10 @@ jobs:
           TWILIO_API_SECRET: ${{ env.TWILIO_API_SECRET }}
           VARIABLES_ENV: | # Add Twilio Functions Variables here
             CORS_ORIGIN=${{ inputs.ENVIRONMENT == 'develop' && '*' || 'flex.twilio.com' }}
+            SPOTIFY_CLIENT_ID=${{ vars[format('{0}_SPOTIFY_CLIENT_ID', inputs.ENVIRONMENT)] }}
+            SPOTIFY_CLIENT_SECRET=${{ secrets[format('{0}_SPOTIFY_CLIENT_SECRET', inputs.ENVIRONMENT)] }}
+            SPOTIFY_REDIRECT_URI=${{ vars[format('{0}_SPOTIFY_REDIRECT_URI', inputs.ENVIRONMENT)] }}
+            SPOTIFY_REFRESH_TOKEN=${{ vars[format('{0}_SPOTIFY_REFRESH_TOKEN', inputs.ENVIRONMENT)] }}
+            SPOTIFY_SOURCE_PLAYLIST_ID=${{ vars[format('{0}_SPOTIFY_SOURCE_PLAYLIST_ID', inputs.ENVIRONMENT)] }}
+            SPOTIFY_DESTINATION_PLAYLIST_ID=${{ vars[format('{0}_SPOTIFY_DESTINATION_PLAYLIST_ID', inputs.ENVIRONMENT)] }}
+            SPOTIFY_LOOKBACK_MINUTES=${{ vars[format('{0}_SPOTIFY_LOOKBACK_MINUTES', inputs.ENVIRONMENT)] }}
